@@ -156,3 +156,6 @@ function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 function escAttr(u) { return /^https?:\/\/|^\.?\//.test(u) ? esc(u) : '#'; }
+
+/* ============ INSTALABLE (PWA) ============ */
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
