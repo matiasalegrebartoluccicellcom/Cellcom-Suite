@@ -1,7 +1,7 @@
 // Datos de tu proyecto: Supabase > Project Settings > API
 // La clave "anon" / "publishable" es pública y puede ir en el repo (la seguridad la da RLS).
 // NUNCA pongas acá la clave "service_role" / "secret".
-const SUPABASE_URL = 'https://zdryvibetbohfogxgxbt.supabase.co/rest/v1/';
+const SUPABASE_URL = 'https://zdryvibetbohfogxgxbt.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_34JfXjzZOWWxSNbUapYr-Q_F0_WxfhZ';
 
 // Dominio "falso" para los usuarios: el vendedor escribe "juan" y entra como juan@cellcom.local.
