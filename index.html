@@ -4,21 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CELLCOM Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#111111">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="CELLCOM">
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#/"><b>CELLCOM</b><i></i><span>SUITE</span></a>
+      <div class="der">
+        <button class="bell oculto" id="bell" onclick="togglePanel()" aria-label="Notificaciones"></button>
+        <i class="div oculto" id="divBell"></i>
+        <div class="perfil" id="perfil"></div>
+      </div>
+    </header>
 
-  <!-- LOGIN -->
-  <section id="vLogin" class="centro oculto">
+    <div id="panel"></div>
+    <main id="main"></main>
+  </div>
+
+  <!-- Login: aparece solo al entrar a una Suite -->
+  <div id="modal" class="oculto" onclick="if(event.target===this)cerrarLogin()">
     <div class="box">
-      <div class="logo grande">CELLCOM<span>Suite</span></div>
-      <p>Sistema interno</p>
+      <button class="cerrar" onclick="cerrarLogin()" aria-label="Cerrar">×</button>
+      <div class="logo grande"><b>CELLCOM</b><i></i><span>SUITE</span></div>
+      <p id="mTexto">Ingresá con tu usuario</p>
       <form id="fLogin" onsubmit="login(event)">
         <input id="lUsuario" type="text" placeholder="Usuario" autocomplete="username"
                autocapitalize="none" autocorrect="off" spellcheck="false" required>
@@ -27,36 +38,7 @@
         <button class="btnPri" id="lBtn" type="submit">Ingresar</button>
       </form>
     </div>
-  </section>
-
-  <!-- PENDIENTE DE ALTA -->
-  <section id="vPendiente" class="centro oculto">
-    <div class="box">
-      <div class="logo grande">CELLCOM<span>Suite</span></div>
-      <p>Tu usuario <b id="pEmail"></b> todavía no tiene acceso.</p>
-      <p class="sub">Pedile a un administrador que te asigne un rol.</p>
-      <button class="btnSec" onclick="logout()">Salir</button>
-    </div>
-  </section>
-
-  <!-- APP -->
-  <section id="vApp" class="oculto">
-    <header>
-      <div class="top">
-        <div class="logo">CELLCOM<span>Suite</span></div>
-        <div class="der">
-          <div class="user"><b id="uNombre"></b><small id="uRol"></small></div>
-          <button class="bell" onclick="togglePanel()" aria-label="Notificaciones">🔔<span class="badge oculto" id="badge"></span></button>
-          <button class="btnSec chico" onclick="logout()">Salir</button>
-        </div>
-      </div>
-      <nav id="nav"></nav>
-    </header>
-    <div id="panel"></div>
-    <main id="main"></main>
-  </section>
-
-  <div id="cargando" class="centro">Cargando…</div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
